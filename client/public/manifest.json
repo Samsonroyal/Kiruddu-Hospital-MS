@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Kiruddu Referral Hospital",
+  "name": "A Hospital Management System for Kiruddu Referral Hospital to digitialize the patient records and improve the quality of healthcare services.",
   "icons": [
     {
       "src": "favicon.ico",
