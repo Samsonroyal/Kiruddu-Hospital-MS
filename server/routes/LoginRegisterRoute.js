@@ -3,7 +3,6 @@ const router = express.Router();
 
 const {
     signUp,
-    verifyUser
 } = require('../controllers/RegisterController.js')
 
 const {
@@ -13,7 +12,7 @@ const {
 
 
 router.post('/signup', signUp);
-router.get('/verify/:id', verifyUser);
+// router.get('/verify/:id', verifyUser);
 router.post('/login', loginUser);
 
 module.exports = router

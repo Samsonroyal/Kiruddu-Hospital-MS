@@ -2,9 +2,119 @@ const User = require("../models/user");
 const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
 
-
 const crypto = require('crypto');
+const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
+
+/**
+ * 
+ * 
+ * const OAuth2 = google.auth.OAuth2;
+// Create an OAuth2 client with your credentials
+const oauth2Client = new OAuth2(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    'https://developers.google.com/oauthplayground' // Redirect URI
+);
+
+oauth2Client.setCredentials({
+    refresh_token: process.env.REFRESH_TOKEN
+});
+
+// Generate an access token
+const accessToken = oauth2Client.getAccessToken();
+
+// Create a nodemailer transporter using OAuth2
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        type: 'OAuth2',
+        user: process.env.GMAIL_USER,
+        accessToken,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN
+    }
+});
+
+const isUserValid = (newUser) => {
+    // Your validation code remains unchanged
+};
+
+const saveVerificationToken = async (userId, verificationToken) => {
+    // Your saveVerificationToken function remains unchanged
+};
+
+const generateVerificationToken = () => {
+    // Your generateVerificationToken function remains unchanged
+};
+
+// Send an email with a verification link
+const sendVerificationEmail = async (email, token) => {
+    const mailOptions = {
+        from: process.env.GMAIL_USER,
+        to: email,
+        subject: 'Verify your email address',
+        text: `Please click the following link to verify your email address: http://localhost:3001/verify/${token}`,
+        html: `<p>Please click this link to verify your account:</p> <a href="http://localhost:3001/verify/${token}">Verify</a>`,
+    };
+
+    let resp = await transporter.sendMail(mailOptions);
+    return resp;
+};
+
+module.exports = async (req, res) => {
+    const newUser = req.body;
+
+    const userValidStatus = isUserValid(newUser);
+    if (!userValidStatus.status) {
+        res.json({ message: "error", errors: userValidStatus.errors });
+    } else {
+        try {
+            const userDetails = await User.create({
+                email: newUser.email,
+                username: newUser.email,
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
+                password: newUser.password,
+                userType: newUser.userType,
+            });
+
+            let verificationToken = generateVerificationToken();
+            await saveVerificationToken(userDetails._id, verificationToken);
+
+            if (newUser.userType === "Doctor") {
+                await Doctor.create({
+                    userId: userDetails._id,
+                    firstName: newUser.firstName,
+                    lastName: newUser.lastName,
+                    email: newUser.email,
+                    username: newUser.email
+                });
+            } else if (newUser.userType === "Patient") {
+                await Patient.create({
+                    userId: userDetails._id,
+                    firstName: newUser.firstName,
+                    lastName: newUser.lastName,
+                    email: newUser.email,
+                    username: newUser.email
+                });
+            }
+
+            let resp = await sendVerificationEmail(userDetails.email, verificationToken.token);
+            res.json({ message: "success" });
+        } catch (error) {
+            res.json({ message: "error", errors: [error.message] });
+        }
+    }
+};
+
+
+ * 
+ * 
+ * 
+ */
+
 
 const isUserValid = (newUser) => {
     const errorList = [];
@@ -187,7 +297,5 @@ const verifyUser = (req, res) => {
 }
 
 module.exports = {
-    signUp,
-    verifyUser
+    signUp   
 }
-
