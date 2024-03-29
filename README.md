@@ -1,6 +1,6 @@
-# HOSPITAL MANAGEMENT SYSTEM
+# Kiruddu Referral Hospital Management System
 
-This is a Hospital Management System built using the MERN Stack (MongoDB, Express, React, Node.js). It is a web-based application that allows hospital staff to manage patient records, appointments, and billing information.
+This is a Hospital Management System built using the MERN Stack (MongoDB, Express, React, Node.js). It is a web-based application for Kiruddu Referral Hospital that allows hospital staff to digitalize hospital operations and manage patient records, appointments, and billing information.
 
 ## Features
 
@@ -12,39 +12,88 @@ This is a Hospital Management System built using the MERN Stack (MongoDB, Expres
 - Billing and payment management
 - Dashboard with key performance indicators (KPIs) and analytics
 
-
-## Screenshots
-
-### Dashboards
-
-#### Admin Dashboard
-
-<img width="1440" alt="Screenshot 2023-04-01 at 7 21 03 PM" src="https://user-images.githubusercontent.com/33474725/230932009-1f98b4d4-d0fd-41ca-b91d-79eae357c2fd.png">
-
-
-#### Doctor Dashboard
-
-<img width="1440" alt="Screenshot 2023-04-10 at 11 26 09 AM" src="https://user-images.githubusercontent.com/33474725/230932582-66d70e89-1d98-4cf4-b25e-87659e47681a.png">
-
-#### User Management
-
-<img width="1440" alt="Screenshot 2023-04-10 at 11 38 41 AM" src="https://user-images.githubusercontent.com/33474725/230936115-8ad23e01-38a0-4371-bd87-a7744f900d92.png">
-
-
-#### Appointments Page
-
-<img width="1439" alt="Screenshot 2023-04-10 at 11 34 00 AM" src="https://user-images.githubusercontent.com/33474725/230934185-958f66d1-d88b-40f5-a53b-df854c022975.png">
-
-#### Prescriptions
-<img width="1440" alt="Screenshot 2023-04-10 at 11 41 34 AM" src="https://user-images.githubusercontent.com/33474725/230936853-3df4cb40-fc53-4224-bb3c-7476a376765c.png">
-
-#### Login Page
-
-<img width="1440" alt="Screenshot 2023-04-10 at 11 35 51 AM" src="https://user-images.githubusercontent.com/33474725/230934880-defc60d5-59cf-47e7-ab2c-4f343ca6f106.png">
-
-#### Register Page
-
-<img width="1440" alt="Screenshot 2023-04-10 at 11 37 24 AM" src="https://user-images.githubusercontent.com/33474725/230935305-87750fda-d25c-486e-99de-12e8af936795.png">
-
 ## Getting Started
 
+To get started with the project, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+
+   git clone https://github.com/Samsonroyal/Kiruddu-Hospital-MS.git
+
+   ```
+
+   Or, if you downloaded the zipped folder, extract it to your desired location.
+   and then open the project with your desired IDE(Integrated Development Environment); I prefer to use VsCode.
+
+2. Open two terminals concurrently.
+
+3. In the first terminal, navigate to the `server` folder:
+
+   ```bash
+
+   cd server
+
+   ```
+
+   Then install the dependencies:
+
+   ```bash
+
+   npm install
+
+   ```
+
+   Make sure to populate the `.env` file with the necessary values required for the server to run.
+
+4. In the second terminal, navigate to the `client` folder:
+
+   ```bash
+
+   cd client
+
+   ```
+
+   Then install the dependencies:
+
+   ```bash
+
+   npm install
+
+   ```
+
+5. Again, make sure to populate the `.env` file in the `client` folder with the necessary values required for the client to run.
+
+6. After installing the dependencies in both terminals, start the server and client:
+
+   In the `server` terminal:
+
+   ```bash
+
+   npm start
+
+   ```
+
+   In the `client` terminal:
+
+   ```bash
+
+   npm start
+
+   ```
+
+   This will start the server and client concurrently.
+
+7. Once the server and client are running, you can access the application at http://localhost:3000 in your web browser.
+
+## Deployment
+
+The project is deployed on Vercel. When deploying the project, ensure that the necessary environment variables are configured in the Vercel dashboard.
+
+Link to Deployment: https://kiruddu-hospital-ms.vercel.app/
+
+
+## Screenshots
+A brief sneakshot of the Doctor Dashboard
+![alt text](image.png)
