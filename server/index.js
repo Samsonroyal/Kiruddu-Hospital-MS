@@ -49,23 +49,23 @@ app.use(ProfileRoute);
 
 
 // // API that get all patients
-// app.get('/patients', getAllPatients);
+app.get('/patients', getAllPatients);
 
 // //API that gets a patient by ID
-// app.get('/patients/:id', getPatientByID);
+app.get('/patients/:id', getPatientByID);
 
 // //API for adding a patient
-// app.post('/patients', createPatient);
+app.post('/patients', createPatient);
 
 // //API for editting a details of the patient by ID 
-// app.put('/patients/:id', editPatientByID);
+app.put('/patients/:id', editPatientByID);
 
 // //API for deleting a  patient by ID
-// app.delete('/patients/:id', deletePatientByID);
+app.delete('/patients/:id', deletePatientByID);
 app.use('/api/paypal', require('./routes/api/paypal'));
 
 
 app.get("/", (req, res) => {
-    res.send("hello world");
+    res.send("We are in business");
 });
 
