@@ -71,7 +71,7 @@ const Header = ({ open, handleDrawerOpen, headerTitle }) => {
         </IconButton>
         <Typography variant="h4" noWrap component="div" onClick={redirectToHome} sx={{ flexGrow: 1, fontWeight: 'bolder' }} >
           {/* {headerTitle} */}
-          Green Hills Hospital
+          Kiruddu Referral Hospital
         </Typography>
         {isLoggedIn && (
           <div className={styles.accountIcon}>
